@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { VoltareModule, VoltareClient } from 'voltare';
 import { PhotoBoxConfig } from '../bot';
 
@@ -145,17 +145,27 @@ export default class APIModule<T extends VoltareClient<PhotoBoxConfig>> extends 
       const res = await axios.get(
         `https://api.snaz.in/v2/steam/user-profile/${encodeURIComponent(id.toLowerCase())}`
       );
-      if (res.status >= 200 && res.status < 300) return res.data as SteamProfile;
-      else
+      return res.data as SteamProfile;
+    } catch (err) {
+      const e = err as AxiosError<APISnazError>;
+      if (e.isAxiosError && e.response) {
+        if (e.response.status === 404)
+          return {
+            error: 'That profile could not be found!',
+            ok: false
+          } as APISnazError;
+        else
+          return {
+            error:
+              (e.response.data as APISnazError).error ||
+              `The service gave us a ${e.response.status}! Try again later!`,
+            ok: false
+          } as APISnazError;
+      } else
         return {
-          error: (res.data as APISnazError).error || `The service gave us a ${res.status}! Try again later!`,
+          error: 'An error occurred with the API!',
           ok: false
         } as APISnazError;
-    } catch (e) {
-      return {
-        error: 'An error occurred with the API!',
-        ok: false
-      } as APISnazError;
     }
   }
 }

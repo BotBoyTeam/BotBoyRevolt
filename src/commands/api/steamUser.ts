@@ -7,7 +7,7 @@ export default class SteamUserCommand extends GeneralCommand {
     super(client, {
       name: 'steamuser',
       description: 'Get the Steam profile of a user.',
-      category: 'General',
+      category: 'Games',
       aliases: ['su', 'steamu'],
       metadata: {
         examples: ['steamuser Snazzah']
@@ -18,7 +18,7 @@ export default class SteamUserCommand extends GeneralCommand {
   }
 
   async run(ctx: CommandContext) {
-    if (!ctx.args[0]) return 'Give the Steam ID or the custom URL of a Steam user.';
+    if (!ctx.args[0]) return 'Give the Steam ID or the custom URL of a Steam user!';
     const profile = await this.api.getSteamProfile(ctx.args[0]);
     if (profile.ok === false) return profile.error;
 
