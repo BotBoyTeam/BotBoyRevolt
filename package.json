@@ -23,7 +23,7 @@
     "chalk": "^4.1.0",
     "common-tags": "^1.8.0",
     "config": "^3.3.3",
-    "dayjs": "^1.10.4",
+    "dayjs": "^1.10.7",
     "duck-duck-scrape": "^2.1.2",
     "lodash": "^4.17.21",
     "pretty-ms": "^7.0.1",

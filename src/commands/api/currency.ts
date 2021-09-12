@@ -28,7 +28,7 @@ export default class SearchCommand extends GeneralCommand {
     const exchange = await currency(ctx.args[1], ctx.args[2], parseFloat(ctx.args[0]));
     const url = `http://www.xe.com/currencyconverter/convert/?Amount=${exchange.conversion['from-amount']}&From=${exchange.conversion['from-currency-symbol']}&To=${exchange.conversion['to-currency-symbol']}`;
     return stripIndents`
-      [](a://a)${oneLine`
+      ${oneLine`
         $\\tt{${exchange.conversion['from-amount']}}\\textsf{ ${exchange.conversion['from-currency-name']} (${exchange.conversion['from-currency-symbol']})}$
         |
         $\\tt{${exchange.conversion['converted-amount']}}\\textsf{ ${exchange.conversion['to-currency-name']} (${exchange.conversion['to-currency-symbol']})}$
@@ -46,6 +46,7 @@ export default class SearchCommand extends GeneralCommand {
         .slice(0, 3)
         .join('\n')}
       \n\n
+      [](a://a)
       [$\\footnotesize\\colorbox{#333333}{\\color{#ffffff}\\textsf{→ More on xe.com}}$](${url})
     `;
   }
