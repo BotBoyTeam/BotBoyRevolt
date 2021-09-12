@@ -26,6 +26,7 @@ export default class SteamUserCommand extends GeneralCommand {
       return stripIndents`
         $\\Large\\color{#ffffff}\\textsf{${profile.username}}$
         > This profile is private.
+        ** **
       `;
 
     let state = 'Unknown';
@@ -60,10 +61,19 @@ export default class SteamUserCommand extends GeneralCommand {
       [$\\Large\\color{#ffffff}\\textsf{${profile.username}}$](https://steamcommunity.com/profiles/${
       profile.steamid[64]
     })
-      \`${profile.steamid[2]}\` - \`${profile.steamid[64]}\`
+      ${profile.real_name ? `${profile.real_name} - ` : ''}${profile.location}
       $\\colorbox{#${stateColor}}{\\color{#ffffff}\\textsf{${state}}}$ $\\fcolorbox{#${color}}{#333333}{\\color{#ffffff}\\textsf{Level ${
       profile.level.estimate
     }}}$
+      \`${profile.steamid[2]}\` - \`${profile.steamid[64]}\`
+      ###### ${[
+        profile.avatar ? `[Avatar](${profile.avatar})` : '',
+        profile.avatar_border_url ? `[Avatar Border](${profile.avatar_border_url})` : '',
+        profile.animated_background_url ? `[Animated Background](${profile.animated_background_url})` : '',
+        profile.background_url ? `[Background](${profile.background_url})` : ''
+      ]
+        .filter((v) => !!v)
+        .join(' - ')}
       ** **
       ${
         profile.badge
@@ -79,7 +89,7 @@ export default class SteamUserCommand extends GeneralCommand {
         profile.recent_activity
           ? `
             ** **
-            ### Recent Activity
+            ### :video_game: Recent Activity
             **${profile.recent_activity.playtime.formatted}** hours of playtime since the last 2 weeks
                 ${profile.recent_activity.games
                   .map((game) => `**[${game.name}](${game.url})** - ${game.hours.formatted} hours`)
