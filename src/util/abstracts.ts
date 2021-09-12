@@ -3,7 +3,7 @@ import { Message } from 'revolt.js/dist/maps/Messages';
 import { CHANNEL_REGEX, USER_REGEX } from '.';
 import APIModule from '../modules/api';
 
-export abstract class GeneralCommand extends VoltareCommand {
+export class GeneralCommand extends VoltareCommand {
   get api() {
     return this.client.modules.get('api')! as APIModule<any>;
   }
