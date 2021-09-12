@@ -60,11 +60,6 @@ export default class HelpCommand extends GeneralCommand {
       }
     }
 
-    const prefixes: string[] = [];
-    const configPrefixes = this.client.config.prefix;
-    if (Array.isArray(configPrefixes)) prefixes.push(...configPrefixes);
-    else prefixes.push(configPrefixes);
-
     // Display general help command
     const blocks: string[] = [];
 
@@ -113,7 +108,6 @@ export default class HelpCommand extends GeneralCommand {
     const messages = splitMessage(
       stripIndents`
         # BotBoy by Snazzah
-        **Prefixes:** ${prefixes.map((p) => `\`${p}\``).join(', ')}, <@${this.client.bot.user!._id}>
         ** **
         ${blocks.join('\n** **\n')}
         ** **

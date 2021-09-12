@@ -75,10 +75,10 @@ export default class SteamUserCommand extends GeneralCommand {
           ? `**Group:** [${profile.primary_group.name}](${profile.primary_group.url}) - ${profile.primary_group.member_count.estimate} member(s)`
           : ''
       }
-      ** **
       ${
         profile.recent_activity
           ? `
+            ** **
             ### Recent Activity
             **${profile.recent_activity.playtime.formatted}** hours of playtime since the last 2 weeks
                 ${profile.recent_activity.games
@@ -87,6 +87,7 @@ export default class SteamUserCommand extends GeneralCommand {
             `
           : ''
       }
+      ** **
     `;
   }
 }
