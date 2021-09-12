@@ -8,7 +8,7 @@ export default class SearchCommand extends GeneralCommand {
     super(client, {
       name: 'search',
       description: 'Search the web with DuckDuckGo.',
-      category: 'General',
+      category: 'Utility',
       aliases: ['g', 'google', 'ddg'],
       metadata: {
         examples: ['search Snazzah']
@@ -30,6 +30,10 @@ export default class SearchCommand extends GeneralCommand {
       ${topResult.description.replace(/<\/?b>/g, '**')}
       ** **
       *${topResult.url}*
+      ** **
+      [$\\footnotesize\\colorbox{#333333}{\\color{#ffffff}\\textsf{→ More on DuckDuckGo}}$](https://duckduckgo.com/?q=${encodeURIComponent(
+        query
+      )}&ia=web)
     `;
   }
 }
