@@ -718,13 +718,13 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-duck-duck-scrape@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/duck-duck-scrape/-/duck-duck-scrape-2.1.2.tgz#61efc6be420d17287c2f78cb00f9fdcf1b5e0d8d"
-  integrity sha512-7zsr1Kb6YOOmTznyCoAvfi5urigPQI8dDdEw/TFoxzI6fQNHI1FrPvIiyd4TwYluIGgYKhQcfai72U08UT8JqA==
+duck-duck-scrape@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/duck-duck-scrape/-/duck-duck-scrape-2.1.4.tgz#2566df022fda4962501aef04ff90cc67767db67e"
+  integrity sha512-Sh5MCfYO1gl0xvzehaVWnuvB6aFHI2fdzyr7qDV4q+OycW6ZpfuSjbjsEVkMaarqOjQ3eD519n+nl5/+DJswng==
   dependencies:
     html-entities "^2.3.2"
-    needle "^2.6.0"
+    needle "^3.0.0"
 
 duplexer3@^0.1.4:
   version "0.1.4"
@@ -1558,10 +1558,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-needle@^2.6.0:
-  version "2.9.1"
-  resolved "https://registry.yarnpkg.com/needle/-/needle-2.9.1.tgz#22d1dffbe3490c2b83e301f7709b6736cd8f2684"
-  integrity sha512-6R9fqJ5Zcmf+uYaFgdIHmLwNldn5HbK8L5ybn7Uz+ylX/rnOsSp1AHcvQSrCaFN+qNM1wpymHqD7mVasEOlHGQ==
+needle@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/needle/-/needle-3.0.0.tgz#5808f20246d69ffd7ebd42109eb58d1442b98e6e"
+  integrity sha512-eGr0qnfHxAjr+Eptl1zr2lgUQUPC1SZfTkg2kFi0kxr1ChJonHUVYobkug8siBKMlyUVVp56MSkp6CSeXH/jgw==
   dependencies:
     debug "^3.2.6"
     iconv-lite "^0.4.4"

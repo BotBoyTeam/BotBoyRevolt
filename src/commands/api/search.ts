@@ -11,6 +11,7 @@ export default class SearchCommand extends GeneralCommand {
       category: 'Utility',
       aliases: ['g', 'google', 'ddg'],
       metadata: {
+        usage: '<query>',
         examples: ['search Snazzah']
       }
     });

@@ -29,6 +29,7 @@ export default class DefineCommand extends GeneralCommand {
       category: 'Utility',
       aliases: ['def', 'definition', 'dictionary'],
       metadata: {
+        usage: '<word>',
         examples: ['define love']
       }
     });
@@ -59,7 +60,7 @@ export default class DefineCommand extends GeneralCommand {
     const ahd = pronunciations.find((p) => p.rawType.startsWith('ahd'));
 
     return stripIndents`
-      ## ${hyphenation || word}**${ahd ? ` *(${ahd.raw})*` : ''}
+      ## ${hyphenation || word} ${ahd ? ` *(${ahd.raw})*` : ''}
       [](a://a)
       ${definitions
         .filter((d) => d.text)

@@ -16,6 +16,7 @@ export default class TimeCommand extends GeneralCommand {
       category: 'Utility',
       aliases: ['timezone', 'tz'],
       metadata: {
+        usage: '<location>',
         examples: ['time California']
       }
     });
