@@ -1,8 +1,8 @@
 import { stripIndents, oneLine } from 'common-tags';
 import { CommandContext, VoltareClient } from 'voltare';
 import { keyValueForEach, splitMessage, truncate } from 'voltare/lib/util';
-import { readFlags } from '../util';
-import { GeneralCommand } from '../util/abstracts';
+import { readFlags } from '../../util';
+import { GeneralCommand } from '../../util/abstracts';
 
 export default class HelpCommand extends GeneralCommand {
   constructor(client: VoltareClient<any>) {
