@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "PhotoBox Revolt",
+      "name": "BotBoy Revolt",
       "script": "dist/index.js",
       "env": {
         "NODE_ENV": "development"
