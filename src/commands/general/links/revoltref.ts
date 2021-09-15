@@ -1,6 +1,6 @@
 import { stripIndents } from 'common-tags';
 import { VoltareClient } from 'voltare';
-import { GeneralCommand } from '../util/abstracts';
+import { GeneralCommand } from '../../../util/abstracts';
 
 export default class RevoltRefCommand extends GeneralCommand {
   constructor(client: VoltareClient<any>) {

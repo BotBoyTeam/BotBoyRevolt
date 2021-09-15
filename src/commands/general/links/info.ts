@@ -1,7 +1,7 @@
 import { stripIndents } from 'common-tags';
 import { CommandContext, VoltareClient } from 'voltare';
 import prettyMilliseconds from 'pretty-ms';
-import { GeneralCommand } from '../util/abstracts';
+import { GeneralCommand } from '../../../util/abstracts';
 
 export default class InfoCommand extends GeneralCommand {
   constructor(client: VoltareClient<any>) {
