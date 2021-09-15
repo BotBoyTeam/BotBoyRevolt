@@ -107,8 +107,6 @@ export default class HelpCommand extends GeneralCommand {
 
     const messages = splitMessage(
       stripIndents`
-        # BotBoy by Snazzah
-        ** **
         ${blocks.join('\n** **\n')}
         ** **
         Run \`${prefix}help <command>\` for more info on a command.
