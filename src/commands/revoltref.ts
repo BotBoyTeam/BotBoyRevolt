@@ -8,7 +8,7 @@ export default class RevoltRefCommand extends GeneralCommand {
       name: 'revoltref',
       description: 'Get some reference links to Revolt.',
       category: 'General',
-      aliases: ['revolt', 'rref'],
+      aliases: ['revolt', 'rref', 'rvlt'],
       metadata: {
         examples: ['revoltref']
       }
