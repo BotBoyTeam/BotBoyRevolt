@@ -1,5 +1,5 @@
 import { VoltareClient } from 'voltare';
-import { GeneralCommand } from '../util/abstracts';
+import { GeneralCommand } from '../../util/abstracts';
 
 export default class InviteCommand extends GeneralCommand {
   constructor(client: VoltareClient<any>) {
