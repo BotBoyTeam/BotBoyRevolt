@@ -38,6 +38,10 @@ export default class WeatherCommand extends GeneralCommand {
     return Math.round(((degree - 32) * 5) / 9);
   }
 
+  toKph(mph: number) {
+    return (mph * 1.609).toFixed(2);
+  }
+
   getCardinal(angle: number) {
     const degreePerDirection = 360 / 8;
     const offsetAngle = angle + degreePerDirection / 2;
@@ -78,10 +82,10 @@ export default class WeatherCommand extends GeneralCommand {
       **Temperature**: ${temperature}°F (${this.toCelsius(temperature)}°C)
       Apparent Temperature: ${apparentTemperature}°F (${this.toCelsius(apparentTemperature)}°C)
       **Humidity:** ${weather.currently.humidity * 100}%
-      **Wind Speed:** ${weather.currently.windSpeed} mph (${
-      weather.currently.windSpeed * 1.609
-    } kph) ${this.getCardinal(weather.currently.windBearing)}
-      Wind Gust Speed: ${weather.currently.windGust} mph (${weather.currently.windGust * 1.609} kph)
+      **Wind Speed:** ${weather.currently.windSpeed} mph (${this.toKph(
+      weather.currently.windSpeed
+    )} kph) ${this.getCardinal(weather.currently.windBearing)}
+      Wind Gust Speed: ${weather.currently.windGust} mph (${this.toKph(weather.currently.windGust)} kph)
       ${
         weather.currently.nearestStormDistance
           ? `Nearest Storm: ${weather.currently.nearestStormDistance} mi ${this.getCardinal(
