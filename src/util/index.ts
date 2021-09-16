@@ -5,15 +5,19 @@ export const CHANNEL_REGEX = /<#([A-Z\d]{26})>/;
 export const ID_REGEX = /[A-Z\d]{26}/;
 export const URL_REGEX = /https?:\/\/[^\s<|]+[^<.,:;"')\]\s>|*_~`]/i;
 
-interface FlagOption {
+interface FlagOption<T = string> {
   shortFlag?: string;
-  name: string;
+  name: T;
   aliases?: string[];
   getsString?: boolean;
 }
+interface FlagResult<T extends string> {
+  result: Record<T, string | boolean>;
+  args: string[];
+}
 
-export function readFlags(flags: FlagOption[], ctx: CommandContext) {
-  const result: { [flag: string]: boolean | string } = {};
+export function readFlags<T extends string>(flags: FlagOption<T>[], ctx: CommandContext): FlagResult<T> {
+  const result: Record<string, string | boolean> = {};
   const args: string[] = [];
 
   let assignTo: string | null = null;

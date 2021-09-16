@@ -1,6 +1,7 @@
 import { stripIndents } from 'common-tags';
 import { forecast } from 'duck-duck-scrape';
 import { CommandContext, VoltareClient } from 'voltare';
+import { readFlags } from '../../util';
 import { GeneralCommand } from '../../util/abstracts';
 
 const ICON_MAP: Record<string, string> = {
@@ -23,7 +24,10 @@ export default class WeatherCommand extends GeneralCommand {
       aliases: ['w', 'forecast'],
       metadata: {
         usage: '<area>',
-        examples: ['weather California']
+        examples: ['weather California'],
+        details: stripIndents`
+          You can get full weather information with the \`--full (f)\` flag.
+        `
       }
     });
 
@@ -56,8 +60,9 @@ export default class WeatherCommand extends GeneralCommand {
   }
 
   async run(ctx: CommandContext) {
-    if (!ctx.args[0]) return 'Give me something to search!';
-    const query = ctx.args.join(' ');
+    const { result, args } = readFlags([{ name: 'full', shortFlag: 'f' }], ctx);
+    if (!args[0]) return 'Give me something to search!';
+    const query = args.join(' ');
 
     const weather = await forecast(query);
     if (!weather) return 'No results were found!';
@@ -71,13 +76,30 @@ export default class WeatherCommand extends GeneralCommand {
       ### ${ICON_MAP[weather.hourly.icon] ?? ''} ${weather.hourly.summary}
       ** **
       **Temperature**: ${temperature}°F (${this.toCelsius(temperature)}°C)
-      **Humidity:** ${weather.currently.humidity * 100}%
       Apparent Temperature: ${apparentTemperature}°F (${this.toCelsius(apparentTemperature)}°C)
+      **Humidity:** ${weather.currently.humidity * 100}%
+      **Wind Speed:** ${weather.currently.windSpeed} mph (${
+      weather.currently.windSpeed * 1.609
+    } kph) ${this.getCardinal(weather.currently.windBearing)}
+      Wind Gust Speed:** ${weather.currently.windGust} mph (${weather.currently.windGust * 1.609} kph)
       ${
         weather.currently.nearestStormDistance
           ? `Nearest Storm: ${weather.currently.nearestStormDistance} mi ${this.getCardinal(
               weather.currently.nearestStormBearing
             )}\n`
+          : ''
+      }
+      ${
+        result.full
+          ? stripIndents`
+            Timezone: ${weather.timezone}
+            Cloud Coverage: ${weather.currently.cloudCover * 100}%
+            Dew Point: ${weather.currently.dewPoint}°F (${this.toCelsius(weather.currently.dewPoint)}°C)
+            Visibility: ${weather.currently.visibility === 10 ? '10+' : weather.currently.visibility} mi
+            Pressure: ${weather.currently.pressure.toLocaleString()} mb/hPa
+            Ozone: ${weather.currently.ozone.toLocaleString()}
+            UV Index: ${weather.currently.uvIndex}
+          `
           : ''
       }
       ** **
