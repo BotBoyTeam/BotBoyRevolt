@@ -46,7 +46,7 @@ export default class HelpCommand extends GeneralCommand {
 
         // Usage
         if (command.metadata?.usage)
-          text += `\nUsage | ${ctx.prefix} ${command.name} \`${command.metadata.usage}\``;
+          text += `\nUsage | ${prefix}${command.name} \`${command.metadata.usage}\``;
 
         // Examples
         if (command.metadata?.examples && command.metadata?.examples.length !== 0)
