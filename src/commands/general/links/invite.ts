@@ -17,6 +17,6 @@ export default class InviteCommand extends GeneralCommand {
   }
 
   async run() {
-    return '[$\\colorbox{#6ce69f}{\\color{#ffffff}\\textsf{+ Add BotBoy}}$](/bot/01FE6KEHQW7C2WHN0PY55NGTBX)';
+    return '[$\\colorbox{#6ce69f}{\\color{#000000}\\textsf{+ Add BotBoy}}$](/bot/01FE6KEHQW7C2WHN0PY55NGTBX)';
   }
 }

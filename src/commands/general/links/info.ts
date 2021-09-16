@@ -25,7 +25,7 @@ export default class InfoCommand extends GeneralCommand {
 
   async run(ctx: CommandContext) {
     await ctx.reply(stripIndents`
-      $\\Large\\colorbox{#6ce69f}{\\color{#ffffff}\\textsf{BotBoy}}$
+      $\\Large\\colorbox{#6ce69f}{\\color{#000000}\\textsf{BotBoy}}$
       $\\color{#ffffff}\\textsf{A Revolt bot that can provide rich information from multiple sources.}$
       ** **
       $\\textsf{📊 \\textbf{${this.client.bot.servers.size.toLocaleString()}} \\textsf{servers}}$
