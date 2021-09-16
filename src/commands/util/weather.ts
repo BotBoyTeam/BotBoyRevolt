@@ -81,7 +81,7 @@ export default class WeatherCommand extends GeneralCommand {
       **Wind Speed:** ${weather.currently.windSpeed} mph (${
       weather.currently.windSpeed * 1.609
     } kph) ${this.getCardinal(weather.currently.windBearing)}
-      Wind Gust Speed:** ${weather.currently.windGust} mph (${weather.currently.windGust * 1.609} kph)
+      Wind Gust Speed: ${weather.currently.windGust} mph (${weather.currently.windGust * 1.609} kph)
       ${
         weather.currently.nearestStormDistance
           ? `Nearest Storm: ${weather.currently.nearestStormDistance} mi ${this.getCardinal(
