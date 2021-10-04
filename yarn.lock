@@ -753,10 +753,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-duck-duck-scrape@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/duck-duck-scrape/-/duck-duck-scrape-2.1.4.tgz#2566df022fda4962501aef04ff90cc67767db67e"
-  integrity sha512-Sh5MCfYO1gl0xvzehaVWnuvB6aFHI2fdzyr7qDV4q+OycW6ZpfuSjbjsEVkMaarqOjQ3eD519n+nl5/+DJswng==
+duck-duck-scrape@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/duck-duck-scrape/-/duck-duck-scrape-2.1.5.tgz#9d65c4fc4a92e652a9e25ab9376590b598874bfa"
+  integrity sha512-Ao4LCHX+jmSegyRMWn0jlYYkgu68E40wL/AXOjlP4pKEjqndsLG6I4t1+nVOhe8MS83cJHodxVtpfVoVPD08nA==
   dependencies:
     html-entities "^2.3.2"
     needle "^3.0.0"
