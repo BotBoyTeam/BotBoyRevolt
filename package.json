@@ -21,7 +21,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "chalk": "^4.1.0",
-    "common-tags": "^1.8.1",
+    "common-tags": "^1.8.2",
     "config": "^3.3.3",
     "dayjs": "^1.10.7",
     "duck-duck-scrape": "^2.2.0",
