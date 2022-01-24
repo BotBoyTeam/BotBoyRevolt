@@ -19,7 +19,7 @@
     "depCheck": false
   },
   "dependencies": {
-    "axios": "^0.24.0",
+    "axios": "^0.25.0",
     "chalk": "^4.1.0",
     "common-tags": "^1.8.2",
     "config": "^3.3.7",
